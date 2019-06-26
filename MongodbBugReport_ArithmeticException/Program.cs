@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MongoDB.Driver;
+using System;
 
 namespace MongodbBugReport_ArithmeticException
 {
@@ -10,6 +7,10 @@ namespace MongodbBugReport_ArithmeticException
     {
         static void Main(string[] args)
         {
+            string remoteServer = "nsmongodb01";
+            var client = new MongoClient("mongodb://" + remoteServer + ":27017");
+            var list = client.ListDatabaseNames().ToList();
+            Console.ReadKey();
         }
     }
 }
